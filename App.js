@@ -1,15 +1,16 @@
+// App.js
 import React from 'react';
-import Counter from './components/Counter';
-import FAQList from './components/FAQList';
-import CounterWithEffect from './components/CounterWithEffect';
+import GuessNumber from './GuessNumber'; // Make sure the path is correct
 
 function App() {
   return (
-    <div className="App">
-      <h1>React Lab 2</h1>
-      <Counter />
-      <FAQList />
-      <CounterWithEffect />
+    <div>
+      <header>
+        <h1>Welcome to the Number Guessing Game</h1>
+      </header>
+      <main>
+        <GuessNumber />
+      </main>
     </div>
   );
 }

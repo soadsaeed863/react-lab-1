@@ -1,0 +1,29 @@
+{
+    "products": [
+      {
+        "product_id": 1,
+        "product_name": "Moisturizing Cream",
+        "product_desc": "A hydrating cream to keep your skin soft and smooth.",
+        "product_category": "Moisturizers"
+      },
+      {
+        "product_id": 2,
+        "product_name": "Anti-Aging Serum",
+        "product_desc": "Reduces wrinkles and fine lines, giving you a youthful glow.",
+        "product_category": "Serums"
+      },
+      {
+        "product_id": 3,
+        "product_name": "Sunscreen SPF 50",
+        "product_desc": "Protects your skin from harmful UV rays.",
+        "product_category": "Sun Protection"
+      },
+      {
+        "product_id": 4,
+        "product_name": "Exfoliating Scrub",
+        "product_desc": "Removes dead skin cells for a brighter complexion.",
+        "product_category": "Exfoliants"
+      }
+    ]
+  }
+  
