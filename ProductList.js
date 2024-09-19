@@ -1,47 +1,25 @@
-// src/ProductList.js
 import React from 'react';
-import { useFetch } from './useFetch';
- // Import the useFetch hook
+import products from './products';
+import { useHistory } from 'react-router-dom';
 
-function ProductList() {
-  // Fetch products from the API using the useFetch hook
-  const { data: products, loading, error } = useFetch('http://localhost:3001/products');
+const ProductList = () => {
+  const history = useHistory();
 
-  // Handle the loading state
-  if (loading) {
-    return <div>Loading...</div>; // Display a loading spinner or message
-  }
-
-  // Handle the error state
-  if (error) {
-    return <div>Error: {error}</div>; // Display an error message
-  }
-
-  // Organize products by category
-  const categories = products.reduce((acc, product) => {
-    const { product_category } = product;
-    if (!acc[product_category]) {
-      acc[product_category] = [];
-    }
-    acc[product_category].push(product);
-    return acc;
-  }, {});
+  const handleProductClick = (productId) => {
+    history.push(`/product/${productId}`);
+  };
 
   return (
     <div>
-      {Object.keys(categories).map((category) => (
-        <div key={category}>
-          <h2>{category}</h2>
-          {categories[category].map(product => (
-            <div key={product.product_id}>
-              <h3>{product.product_name}</h3>
-              <p>{product.product_desc}</p>
-            </div>
-          ))}
+      {products.map(product => (
+        <div key={product.id} onClick={() => handleProductClick(product.id)} style={{border: '1px solid black', padding: '10px', margin: '10px', cursor: 'pointer'}}>
+          <h3>{product.name}</h3>
+          <p>{product.price}</p>
+          <img src={product.imageUrl} alt={product.name} style={{width: '100px'}} />
         </div>
       ))}
     </div>
   );
-}
+};
 
 export default ProductList;

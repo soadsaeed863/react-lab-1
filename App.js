@@ -1,18 +1,19 @@
-// App.js
 import React from 'react';
-import GuessNumber from './GuessNumber'; // Make sure the path is correct
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ProductList from './ProductList';
+import ProductDetails from './ProductDetails';
+import HelpCenter from './HelpCenter';
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <header>
-        <h1>Welcome to the Number Guessing Game</h1>
-      </header>
-      <main>
-        <GuessNumber />
-      </main>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={ProductList} />
+        <Route path="/product/:productId" component={ProductDetails} />
+        <Route path="/help-center" component={HelpCenter} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
